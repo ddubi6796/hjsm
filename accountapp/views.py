@@ -30,6 +30,6 @@ def hello_world(request):
 
 class AccountCreateView(CreateView):
     model = User  # 장고가 제공하는 기본 유저 클래스
-    form_class = UserCreationForm # model을 사용하기 위하여 장고가 기본 제공하는 form
+    form_class = UserCreationForm   # model을 사용하기 위하여 장고가 기본 제공하는 form
     success_url = reverse_lazy('accountapp:hello_world')  # 함수와 클래스간의 import 방식의 차이로 인해 reverse 함수 사용 불가
     template_name = 'accountapp/create.html'
