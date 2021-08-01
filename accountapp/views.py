@@ -42,11 +42,13 @@ class AccountDetailView(DetailView):
 
 class AccountUpdateView(UpdateView):
     model = User  # 장고가 제공하는 기본 유저 클래스
+    context_object_name = 'target_user'
     form_class = AccountUpdateForm  # 커스터마이징한 form
     success_url = reverse_lazy('accountapp:hello_world')  # 함수와 클래스간의 import 방식의 차이로 인해 reverse 함수 사용 불가
     template_name = 'accountapp/update.html'
 
 class AccountDeleteView(DeleteView):
     model = User  # 장고가 제공하는 기본 유저 클래스
+    context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:login')
     template_name = 'accountapp/delete.html'
