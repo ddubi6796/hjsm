@@ -39,7 +39,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
             subscription = Subscription.objects.filter(user=user, project=project)
         
         object_list = Article.objects.filter(project=self.get_object())
-        return super(ProjectDetailView, self).get_context_data(object_list=object_list,
+        return super(ProjectDetailView, self) .get_context_data(object_list=object_list,
                                                                subscription=subscription,
                                                                **kwargs)
 
