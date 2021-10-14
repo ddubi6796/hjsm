@@ -37,7 +37,8 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
         # user가 로그인되어 있을 경우 구독정보 조회
         if user.is_authenticated:
             subscription = Subscription.objects.filter(user=user, project=project)
-        
+        else:
+            subscription = None
         object_list = Article.objects.filter(project=self.get_object())
         return super(ProjectDetailView, self) .get_context_data(object_list=object_list,
                                                                subscription=subscription,
