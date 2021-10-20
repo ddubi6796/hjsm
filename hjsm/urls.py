@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from articleapp.views import ArticleListView
-from hjsm import settings
+
+from django.conf import settings
 
 urlpatterns = [
     path('', ArticleListView.as_view(), name='home'),
